@@ -3,10 +3,14 @@ def split_before_each_uppercases(formula):
 
 
 def split_at_first_digit(formula):
-  digit_loction = 1
+  digit_location = None
   for i in range(len(formula)):
     if formula[i].isdigit():
-      digit_location = i
+      digit_location = i 
       break
-  return(formula[0:digit_location], formula[digit_location:])
+    
+  if digit_location is None:
+    return(formula,1)
 
+  return(formula[:digit_location],int(formula[digit_location:]))
+       
